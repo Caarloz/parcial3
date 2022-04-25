@@ -58,17 +58,8 @@ class _parcial3State extends State<parcial3> {
       future: _listadoBebida,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Scaffold(
-            appBar: AppBar(
-              toolbarHeight: 200,
-              flexibleSpace: encabezado(),
-            ),
-            bottomSheet: Container(
-              color: Colors.black,
-              child: ListView(
-                children: _listadoBebidas(snapshot.data),
-              ),
-            ),
+          return ListView(
+            children: _listadoBebidas(snapshot.data),
           );
         } else if (snapshot.hasError) {
           print(snapshot.error);
@@ -83,8 +74,11 @@ class _parcial3State extends State<parcial3> {
       debugShowCheckedModeBanner: false,
       title: 'Consumo Webservice',
       home: Scaffold(
+          backgroundColor: Colors.black,
           appBar: AppBar(
-            title: Text('Bebidas'),
+            backgroundColor: Colors.black,
+            flexibleSpace: encabezado(),
+            toolbarHeight: 180,
           ),
           body: futureBuilder),
     );
